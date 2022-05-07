@@ -2,6 +2,7 @@ package com.lcoil;
 import org.slf4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.Environment;
 import org.springframework.util.StringUtils;
@@ -16,7 +17,7 @@ import org.slf4j.LoggerFactory;
  * @Date 2022/2/19 10:06 PM
  * @Created by l-coil
  */
-@SpringBootApplication(scanBasePackages = "com.lcoil.web")
+@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })
 public class Application {
     private static final Logger logger  = LoggerFactory.getLogger(Application.class);
     public static void main(String[] args) throws UnknownHostException {

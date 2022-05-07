@@ -1,9 +1,9 @@
 package rules;
 
-import org.lcoil.drools.demo.model.Policys
-import org.lcoil.drools.demo.Results;
+import com.lcoil.drools.demo.model.Policys
+import com.lcoil.drools.demo.Results;
 
-global org.lcoil.drools.demo.Results res;
+global com.lcoil.drools.demo.Results res;
 
 rule "红A"
 when

@@ -8,7 +8,7 @@ lcoil:
   copyrightYear: 2022
   # 实例演示开关
   demoEnabled: true
-  # 文件路径 示例（ Windows配置D:/ruoyi/uploadPath，Linux配置 /home/ruoyi/uploadPath）
+  # 文件路径 示例（ Windows配置D:/lcoil/uploadPath，Linux配置 /home/lcoil/uploadPath）
   profile: /Users/luxianquan/projects/uploadPath
   # 获取ip地址开关
   addressEnabled: false
@@ -18,7 +18,7 @@ lcoil:
 # 开发环境配置
 server:
   # 服务器的HTTP端口，默认为8089
-  port: 8089
+  port: 8111
   servlet:
     # 应用的访问路径
     context-path: /
@@ -59,3 +59,22 @@ spring:
     restart:
       # 热部署开关
       enabled: true
+# NameServer地址
+rocketmq:
+  name-server: 120.48.26.152:9876
+  # 默认的消息组
+  autoCreateTopicEnable: true
+
+  #生产者配置
+  producer:
+    #组名
+    group: anran-producer-group
+    #目的地（topic:tag）
+    #topic
+    topic: TestTopic
+    #sync tag(同步消息tag)
+    sync-tag: anran-sync-tags
+    #async tag(异步消息tag)
+    async-tag: anran-async-tags
+    #oneway tag(单向消息tag)
+    oneway-tag: anran-oneway-tags

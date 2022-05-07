@@ -1,8 +1,9 @@
 package com.lcoil.web;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.lcoil.app.commandbus.CommandBus;
+import com.lcoil.common.command.DemoCommand;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @Classname CheckController
@@ -11,11 +12,20 @@ import org.springframework.web.bind.annotation.RestController;
  * @Created by l-coil
  */
 @RestController
-@RequestMapping()
+@RequestMapping("/test")
 public class CheckController {
 
-    @GetMapping("checks")
+    @Autowired
+    private CommandBus commandBus;
+
+    @GetMapping("/checks")
     public String check(){
+        return "ok";
+    }
+
+    @PostMapping("/demoCommand")
+    public String check(@RequestBody DemoCommand demoCommand){
+        commandBus.send(demoCommand);
         return "ok";
     }
 
